@@ -1,0 +1,80 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-image: url(../Gambar/Background.jpg);
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+}
+body .container {
+  color: #fff;
+}
+body .container nav {
+  display: flex;
+  justify-content: space-between;
+  position: fixed;
+  width: 100vw;
+  border-bottom: 2px solid;
+  height: 50px;
+  background-color: black;
+}
+body .container nav img {
+  position: absolute;
+  width: 54px;
+  margin-left: 60px;
+  border-radius: 50%;
+}
+body .container nav form {
+  display: flex;
+}
+body .container nav form input {
+  width: 350px;
+  line-height: 50px;
+  height: 25px;
+  margin-top: 10px;
+  background-color: transparent;
+}
+body .container nav form button {
+  margin-top: 10px;
+  height: 29px;
+}
+body .container nav h1 {
+  line-height: 50px;
+  margin-left: 120px;
+  mix-blend-mode: difference;
+  font-style: italic;
+}
+body .container nav h1 span {
+  color: #ec5b07;
+  font-style: italic;
+}
+body .container nav ul {
+  display: flex;
+  line-height: 50px;
+}
+body .container nav ul li {
+  list-style: none;
+  margin-right: 50px;
+}
+body .container nav ul li a {
+  text-decoration: none;
+  color: #fff;
+  mix-blend-mode: #fff;
+  font-family: sans-serif;
+}
+body .container nav ul li .Create {
+  font-family: sans-serif;
+  padding: 15px 20px;
+  background-color: white;
+  border-radius: 10px;
+  color: black;
+  mix-blend-mode: difference;
+}/*# sourceMappingURL=style.css.map */
