@@ -17,10 +17,33 @@ body {
 body .container {
   color: #fff;
 }
+body .container header {
+  background-image: linear-gradient(to right, #ff7f00, #ffca28);
+}
+body .container header h1 {
+  text-align: center;
+  font-family: Arial, sans-serif;
+  font-size: 36px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  position: relative;
+  text-shadow: 1px 1px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000;
+}
+body .container header h1::after {
+  content: attr(data-text);
+  position: absolute;
+  top: -0.3em;
+  left: 0;
+  color: #fff;
+  text-shadow: none;
+  background-color: #000;
+  transform: skew(-20deg);
+}
 body .container nav {
   display: flex;
   justify-content: space-between;
   position: fixed;
+  z-index: 999;
   width: 100vw;
   border-bottom: 2px solid;
   height: 50px;
@@ -70,6 +93,9 @@ body .container nav ul li a {
   mix-blend-mode: #fff;
   font-family: sans-serif;
 }
+body .container nav ul li a label {
+  cursor: pointer;
+}
 body .container nav ul li .Create {
   font-family: sans-serif;
   padding: 15px 20px;
@@ -77,4 +103,49 @@ body .container nav ul li .Create {
   border-radius: 10px;
   color: black;
   mix-blend-mode: difference;
+}
+body .container main {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+  margin-top: 280px;
+}
+body .container main h2 {
+  text-shadow: 1px 1px 0px #000, -1px -1px 0px #000, 1px -1px 0px #000, -1px 1px 0px #000;
+  font-size: 30px;
+  text-align: center;
+  width: 60%;
+}
+body .container main aside {
+  width: 40%;
+  width: 300px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  background-color: #f9f9f9;
+  border-radius: 5px;
+}
+body .container main aside h2 {
+  text-align: center;
+}
+body .container main aside form input[type=login],
+body .container main aside form input[type=password] {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+}
+body .container main aside form input[type=submit] {
+  width: 100%;
+  padding: 10px;
+  background-color: #336699;
+  color: #fff;
+  font-weight: bold;
+  border: none;
+  cursor: pointer;
+  border-radius: 3px;
+}
+body .container main aside form input[type=submit]:hover {
+  background-color: #264d73;
 }/*# sourceMappingURL=style.css.map */

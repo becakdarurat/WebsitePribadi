@@ -13,22 +13,40 @@
 </head>
 <body>
     <div class="container">
+        <header>
+            <h1 class="header">Selamat Datang Masukkan Detail Login Anda</h1>
         <nav>
             <img src="../Gambar/Sofyan.jpg" alt="">
-            <h1>Karya <span>Indah</span></h1>
+            <h1 id="Karya">Karya <span>Indah</span></h1>
             <form action="/pencarian" method="POST">
                 <input type="text" name="" id="search" placeholder="Silahkan Cari Nama buku..." />
                 <button type="submit" id="buton">Cari</button>
               </form>
             <ul>
                 <li>
-                    <a href="">LOG IN</a>
+                    <a href="">
+                        <label for="login">LOG IN</label>
+                    </a>
                 </li>
                 <li>
                     <a href="" class="Create">Create a Site</a>
                 </li>
             </ul>
         </nav>
+    </header>
+
+    <main>
+        <h2>"Kehidupan adalah perjalanan, bukan tujuan akhir. Nikmatilah setiap langkah, pelajari setiap pengalaman, dan temukan makna yang lebih dalam dalam setiap detik yang kita jalani."</h2>
+        <aside>
+            <h2>Form login</h2>
+            <form>
+                <input type="login" placeholder="Login ID">
+                <input type="password" placeholder="Password">
+                <input type="submit" value="Login">
+              </form>
+        </aside>
+    </main>
+
     </div>
     <script>
         feather.replace()
