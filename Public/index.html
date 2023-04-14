@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../CSS/style.css">
+    <link rel="stylesheet" href="CSSS/style.css">
 
     <!-- Feature Icon -->
     <script src="https://unpkg.com/feather-icons"></script>
@@ -24,12 +24,12 @@
               </form>
             <ul>
                 <li>
-                    <a href="">
+                    <a href="#">
                         <label for="login">LOG IN</label>
                     </a>
                 </li>
                 <li>
-                    <a href="" class="Create">Create a Site</a>
+                    <a href="#" class="Create">Create a Site</a>
                 </li>
             </ul>
         </nav>
@@ -39,9 +39,9 @@
         <h2>"Kehidupan adalah perjalanan, bukan tujuan akhir. Nikmatilah setiap langkah, pelajari setiap pengalaman, dan temukan makna yang lebih dalam dalam setiap detik yang kita jalani."</h2>
         <aside>
             <h2>Form login</h2>
-            <form>
-                <input type="login" placeholder="Login ID">
-                <input type="password" placeholder="Password">
+            <form action="HTML/login.php" method="post">
+                <input type="login" placeholder="Username" id="username" name="login">
+                <input type="password" placeholder="Password" id="password" name="password">
                 <input type="submit" value="Login">
               </form>
         </aside>
