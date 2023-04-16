@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="CSSS/style.css">
+    <link rel="stylesheet" href="css/style.css">
 
     <!-- Feature Icon -->
     <script src="https://unpkg.com/feather-icons"></script>
@@ -42,6 +42,8 @@
             <form action="HTML/login.php" method="post">
                 <input type="login" placeholder="Username" id="username" name="login">
                 <input type="password" placeholder="Password" id="password" name="password">
+                <input type="checkbox" id="ceklis" onclick="showFunction()">
+                <label for="ceklis" style="color: black;">Tampilkan Sandi</label>
                 <input type="submit" value="Login">
               </form>
         </aside>
@@ -51,5 +53,6 @@
     <script>
         feather.replace()
       </script>
+      <script src="Javascript/index.js"></script>
 </body>
 </html>

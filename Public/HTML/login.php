@@ -1,36 +1,70 @@
 <?php 
-    // Koneksi ke database
-    $mysqli = new mysqli("localhost", "root" , "" , "webdevelopment");
+    require_once '../init.php';
+    class Database {
 
-    // Periksa koneksi
-    if($mysqli->connect_error){
-        die("ERROR: Tidak dapat terhubung ke database. " . $mysqli->connect_error);
-    };
+        private $dbh, //koneksi
+                $stmt, //koneksi yang sudah di prepare
+                $login,
+                $password,
+                $result; //hasilnya
 
+
+        public function __construct()
+        {
+        $this->login = $_POST["login"];
+        $this->password = $_POST["password"];
+
+            // Koneksi ke database
+            $this->dbh = new mysqli(HOST, USER , PASSWORD , TABLE);
+            
+             // Periksa koneksi
+             if($this->dbh->connect_error){
+                 die("ERROR: Tidak dapat terhubung ke database. " . $this->dbh->connect_error);
+             }
+        }
+        public function loginUser(){
+
+            if(isset($_POST["login"]) && isset($_POST["password"])){
+
+                // melakukan query ke table webdevelopment dan memeriksa kecocokan
+                $query ="SELECT * FROM user WHERE username = ? AND password = ?";
+                $this->stmt = $this->dbh->prepare($query); //di prepare
+                $this->stmt->bind_param("ss", $this->login , $this->password); //di ikat setelah di prepare
+                $this->stmt->execute(); //dijalankan setelah di ikat
+                $this->result = $this->stmt->get_result();// mendapatkan hasil setelah di jalankan
+
+    if($this->result->num_rows == 1){  
+        // Jika ID pengguna dan kata sandi cocok, maka login berhasil
+        echo "<script>
+        alert('Login berhasil');
+        window.location.href = 'Home.html';
+        </script>";
+    } else {
+        // Jika ID pengguna dan kata sandi tidak cocok, maka login gagal
+        echo "<script>
+        alert('Yang anda masukkan Salah mohon coba lagi');
+        window.location.href = '../index.html';
+        </script>";
+    }
+        $this->stmt->close();
+        $this->dbh->close();
+
+        }
+    }
+}
+
+        // Membuat object database
+    $database = new Database();
+
+    // Memeriksa pakah data login telah dikirimkan
     if(isset($_POST["login"]) && isset($_POST["password"])){
-        // Mengambil data dari form login
+
         $login = $_POST["login"];
         $password = $_POST["password"];
-    
-        // Melakukan query ke tabel users untuk memeriksa kecocokan ID pengguna dan kata sandi
-        $query = "SELECT * FROM user WHERE username = '$login' AND password = '$password'";
-        $result = $mysqli->query($query);
-    
-        // Memeriksa hasil query
-        if($result->num_rows == 1){
-            // Jika ID pengguna dan kata sandi cocok, maka login berhasil
-            echo "Login berhasil!";
-            // Lakukan aksi setelah login berhasil, misalnya redirect ke halaman utama
-            // header("Location: index.php");
-        } else{
-            // Jika ID pengguna dan kata sandi tidak cocok, maka login gagal
-            echo "ID Pengguna atau Kata Sandi salah.";
-        }
-    } else {
-        // Jika data dari form login belum dikirimkan, tampilkan pesan error
-        echo "Form login belum diisi.";
+
+        // Memanggil metode loginUser untuk memeriksa login
+        $database->loginUser();
     }
-    
-    // Menutup koneksi
-    $mysqli->close();
+
+
     ?>
