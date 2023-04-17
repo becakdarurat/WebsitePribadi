@@ -1,0 +1,19 @@
+<?php require_once '../init.php';?>
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Halaman Registrasi</title>
+    <link rel="stylesheet" href="../css/Registrasi.css" />
+  </head>
+  <body>
+    <h1>Registrasi Akun</h1>
+    <form action="../PHP/Registras.php" method="post">
+      <label for="username">Username:</label>
+      <input type="text" id="username" name="username" required />
+      <label for="password">Password:</label>
+      <input type="password" id="password" name="password" required />
+      <button type="submit" value="Daftar">Daftar</button>
+    </form>
+    <script src="../Javascript/Registrasi.js"></script>
+  </body>
+</html>
