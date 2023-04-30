@@ -1,44 +1,18 @@
-<?php
+<?php 
 require_once '../../App/Core/Database.php';
 
-class Login extends Database{
-    private $db;
-
-    public function __construct() {
-        $this->db = new Database();
+if ($_SERVER['REQUEST_METHOD'] === 'POST') {
+    $database = new Database();
+    $database->query("SELECT * FROM user WHERE username = :username LIMIT 1");
+    $database->bind(':username', $_POST['username']);
+    $resultSet = $database->resultSet();
+    
+    if ($resultSet && password_verify($_POST['password'], $resultSet['password'])) {
+        // login berhasil
+        header('Location: ../HTML/Home.html');
+    } else {
+        // login gagal
+        echo "Email/Username atau password salah";
     }
-
-    public function LoginUser($username, $password) {
-        // Query untuk menambahkan user baru ke database
-        $query = "SELECT * FROM user ($username, $password) VALUES (:username, :password)";
-
-        // Bind data menggunakan method bind()
-        $this->db->query($query);
-        $this->db->bind(':username', $username);
-        $this->db->bind(':password', $password);
-
-        // Eksekusi query
-        $result = $this->db->resultSet();
-
-        // Cek apakah data berhasil ditambahkan
-        if ($result() > 0) {
-            // Jika berhasil, arahkan ke halaman login atau halaman lain yang sesuai
-            header('Location: ../HTML/Home.html');
-        } else {
-            // Jika gagal, berikan pesan error
-            echo "Registrasi gagal";
-        }
-    }
-}
-
-if(isset($_POST["username"]) && isset($_POST["password"])) {
-    $username = $_POST['username'];
-    $password = $_POST['password'];
-
-    // Buat object Login
-    $Login = new Login();
-
-    // Panggil method LoginUser()
-    $Login->LoginUser($username, $password);
 }
 ?>
